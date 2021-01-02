@@ -13,6 +13,8 @@
 		E5E87A6925A0CD4600A51072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E87A6725A0CD4600A51072 /* Main.storyboard */; };
 		E5E87A6B25A0CD4700A51072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E87A6A25A0CD4700A51072 /* Assets.xcassets */; };
 		E5E87A6E25A0CD4700A51072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E87A6C25A0CD4700A51072 /* LaunchScreen.storyboard */; };
+		E5E87A7825A0D4C300A51072 /* RollyBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E87A7725A0D4C300A51072 /* RollyBox.swift */; };
+		E5E87A7B25A0DFA200A51072 /* RollyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E87A7A25A0DFA200A51072 /* RollyConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E5E87A6A25A0CD4700A51072 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5E87A6D25A0CD4700A51072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5E87A6F25A0CD4700A51072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5E87A7725A0D4C300A51072 /* RollyBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollyBox.swift; sourceTree = "<group>"; };
+		E5E87A7A25A0DFA200A51072 /* RollyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollyConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				E5E87A6A25A0CD4700A51072 /* Assets.xcassets */,
 				E5E87A6C25A0CD4700A51072 /* LaunchScreen.storyboard */,
 				E5E87A6F25A0CD4700A51072 /* Info.plist */,
+				E5E87A7725A0D4C300A51072 /* RollyBox.swift */,
+				E5E87A7A25A0DFA200A51072 /* RollyConstants.swift */,
 			);
 			path = RollyBall;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E87A7B25A0DFA200A51072 /* RollyConstants.swift in Sources */,
+				E5E87A7825A0D4C300A51072 /* RollyBox.swift in Sources */,
 				E5E87A6625A0CD4600A51072 /* ViewController.swift in Sources */,
 				E5E87A6225A0CD4600A51072 /* AppDelegate.swift in Sources */,
 				E5E87A6425A0CD4600A51072 /* SceneDelegate.swift in Sources */,
