@@ -8,5 +8,6 @@
 import Foundation
 
 struct RollyConstants {
-    static let boxMargin : Float = 20;
+    static let boxMargin : Float = 20
+    static let refreshRate : Float = 0.05
 }

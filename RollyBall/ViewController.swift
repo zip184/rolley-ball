@@ -21,9 +21,8 @@ class ViewController: UIViewController {
         drawBox()
         drawBall()
         
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-            print("Next frame " + timer.timeInterval.description)
-            self.rollyBox.nextFrame()
+        Timer.scheduledTimer(withTimeInterval: Double(RollyConstants.refreshRate), repeats: true, block: { timer in
+            self.rollyBox.nextFrame(timeDiffSeconds: RollyConstants.refreshRate)
             self.drawBall()
         })
     }
@@ -39,7 +38,9 @@ class ViewController: UIViewController {
         let width = insetWidth - RollyConstants.boxMargin * 2
         let height = insetHeight - RollyConstants.boxMargin * 2
         
-        self.rollyBox.initBox(width: width, height: height)
+        let ballWidth = Float(ballView.frame.size.width)
+        
+        self.rollyBox.initBox(width: width, height: height, ballDiameter: ballWidth)
     }
 
     fileprivate func drawBox() {
@@ -53,11 +54,14 @@ class ViewController: UIViewController {
         boxView.frame = CGRect(x:x, y:y, width: width, height: height)
     }
     
-    
     fileprivate func drawBall() {
         let size = ballView.frame.size;
         
-        let newPoint = CGPoint(x: CGFloat(rollyBox.ballPosX), y: CGFloat(rollyBox.ballPosY))
+        let insets = UIApplication.shared.windows[0].safeAreaInsets
+        let xStart = insets.left + CGFloat(RollyConstants.boxMargin)
+        let yStart = insets.top + CGFloat(RollyConstants.boxMargin)
+        
+        let newPoint = CGPoint(x: xStart + CGFloat(rollyBox.ballPosX), y: yStart + CGFloat(rollyBox.ballPosY))
         ballView.frame = CGRect(origin: newPoint, size: size)
     }
 }
