@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreMotion
 
 class ViewController: UIViewController {
 
-    var rollyBox = RollyBox();
+    let rollyBox = RollyBox()
+    let motionManager = CMMotionManager()
     
     @IBOutlet var boxView: UIImageView!
     @IBOutlet var ballView: UIImageView!
@@ -17,13 +19,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         initRollyBox()
+        
         drawBox()
         drawBall()
         
+        initMotion()
+        
         Timer.scheduledTimer(withTimeInterval: Double(RollyConstants.refreshRate), repeats: true, block: { timer in
-            self.rollyBox.nextFrame(timeDiffSeconds: RollyConstants.refreshRate)
             self.drawBall()
+            
+            if let accelData = self.motionManager.accelerometerData {
+                self.rollyBox.nextFrame(
+                    timeDiffSeconds: RollyConstants.refreshRate,
+                    xAccl: Float(accelData.acceleration.x),
+                    yAccl: Float(accelData.acceleration.y)
+                )
+            }
         })
     }
     
@@ -63,6 +76,13 @@ class ViewController: UIViewController {
         
         let newPoint = CGPoint(x: xStart + CGFloat(rollyBox.ballPosX), y: yStart + CGFloat(rollyBox.ballPosY))
         ballView.frame = CGRect(origin: newPoint, size: size)
+    }
+    
+    fileprivate func initMotion() {
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = Double(RollyConstants.refreshRate)
+            motionManager.startAccelerometerUpdates()
+        }
     }
 }
 
